@@ -1,8 +1,6 @@
 package Se.Lexicon.John.models;
 
-import Se.Lexicon.John.VendingMachine;
-
-public abstract class Product extends VendingMachine {
+public abstract class Product {
     //Static Field
     private static int productCounter = 0;
     //Fields
@@ -14,11 +12,8 @@ public abstract class Product extends VendingMachine {
     //Getters & Setters
     public int getProductnumber() { return productnumber; }
     public String getItemName() { return itemName; }
-    public void setItemName(String itemName) { this.itemName = itemName; }
     public int getItemCost() { return itemCost; }
-    public void setItemCost(int itemCost) { this.itemCost = itemCost; }
     public int getItemCalorieCount() { return itemCalorieCount; }
-    public void setItemCalorieCount(int itemCalorieCount) { this.itemCalorieCount = itemCalorieCount; }
 
     //Constructor
     public Product(String itemName, int itemCost, int itemCalorieCount) {
@@ -50,4 +45,6 @@ public abstract class Product extends VendingMachine {
                 "\nCost: " + getItemCost() +
                 "\nCalories: " +getItemCalorieCount();
     }
+
+
 }

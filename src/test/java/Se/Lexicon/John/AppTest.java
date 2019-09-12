@@ -10,6 +10,7 @@ public class AppTest {
     @Before
     public void setup() {
         MyMachine.setMoneyPool(0);
+        MyMachine.stockMachine();
     }
 
     @Test
@@ -50,4 +51,32 @@ public class AppTest {
         assertEquals(MyMachine.getChange(),expectedResult,0);
         assertNotEquals(MyMachine.getMoneyPool(),expectedResult,0);
     }
+
+    @Test
+    public void testProductDescription() {
+        //Arrange
+        String expectedResult = MyMachine.getIndexOfMachineContent(1).productInformation();
+
+        //Act
+        String actualResult = MyMachine.getDescription(1);
+
+        //Assert
+        assertEquals(expectedResult,actualResult);
+    }
+
+
+
+    @Test
+    public void testProductRequest() {
+        //Arrange
+        MyMachine.setMoneyPool(20);
+        int expectedResult = 5;
+
+        //Act
+        MyMachine.productRequest(1);
+
+        //Assert
+        assertEquals(expectedResult,MyMachine.getMoneyPool());
+    }
 }
+
