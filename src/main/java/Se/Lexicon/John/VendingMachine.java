@@ -16,7 +16,7 @@ public class VendingMachine implements IVendingMachine {
     public int getChange() { return change; }
     public void setChange(int change) { this.change = change; }
     public int getIndexOfMachineContent(int num) { return machineContent[num-1].getProductnumber();}
-    public Product getProductfromMachineContent
+
 
     //Constructor
     public VendingMachine() {
@@ -25,6 +25,7 @@ public class VendingMachine implements IVendingMachine {
     public void stockMachine() {
         machineContent[0] = new Drink("Coca Cola", 15, 42, 330, true);
         machineContent[1] = new Drink("Festis Apelsin", 20, 40, 500, false);
+
     }
 
     @Override
@@ -41,7 +42,7 @@ public class VendingMachine implements IVendingMachine {
 
     @Override
     public Product productRequest(int productNumber) {
-        moneyPool = (moneyPool - (machineContent[productNumber-1].getItemCost()));
+        setMoneyPool (getMoneyPool() - (machineContent[productNumber-1].getItemCost()));
         return machineContent[productNumber-1];
     }
 
@@ -56,9 +57,7 @@ public class VendingMachine implements IVendingMachine {
     }
 
     @Override
-    public String[] getProducts() {
-
-    }
+    public String[] getProducts() { return null; }
 }
 
 
