@@ -4,11 +4,18 @@ public class Drink extends Product {
     private int canSize;
     private boolean isCarbonated;
 
-    public Drink (String itemName, int itemCost, int caloriecount, int canSize, boolean isCarbonated ) {
-        super (itemName,itemCost,caloriecount);
+    public Drink(String itemName, int itemCost, int caloriecount, int canSize, boolean isCarbonated)
+    {
+        super(itemName, itemCost, caloriecount);
         this.canSize = canSize;
         this.isCarbonated = isCarbonated;
     }
+
+    //Getters & Setters
+    public int getCanSize () { return canSize; }
+    public void setCanSize ( int canSize){ this.canSize = canSize; }
+    public boolean isCarbonated () { return isCarbonated; }
+    public void setCarbonated ( boolean carbonated){ isCarbonated = carbonated; }
 
     @Override
     public String productInformation () {
@@ -24,12 +31,9 @@ public class Drink extends Product {
     }
 
     @Override
-    public String toString() {
+    public String toString () {
         return "\nProductnumber: " + getProductnumber() +
                 "\nName " + getItemName();
 
     }
 }
-
-
-

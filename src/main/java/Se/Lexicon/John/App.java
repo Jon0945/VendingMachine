@@ -1,12 +1,14 @@
 package Se.Lexicon.John;
 
+import java.util.Arrays;
+
 public class App
 {
     public static void main( String[] args )
     {
         VendingMachine testMachine = new VendingMachine();
         testMachine.stockMachine();
-        System.out.println(testMachine.getDescription(1));
+        System.out.println(Arrays.toString(testMachine.getProducts()));
 
     }
 

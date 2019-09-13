@@ -3,24 +3,26 @@ package Se.Lexicon.John;
 import Se.Lexicon.John.models.Drink;
 import Se.Lexicon.John.models.IVendingMachine;
 import Se.Lexicon.John.models.Product;
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 
 public class VendingMachine implements IVendingMachine {
     //Fields
     private int moneyPool;
     private int change;
     private Product[] machineContent = new Product[2];
+    private int[] acceptedDenominations = {1, 5, 10, 20, 50, 100, 500, 1000};
 
     //Getters and Setters
     public int getMoneyPool() { return moneyPool; }
     public void setMoneyPool(int moneyPool) { this.moneyPool = moneyPool; }
     public int getChange() { return change; }
     public void setChange(int change) { this.change = change; }
-    public int getIndexOfMachineContent(int num) { return machineContent[num-1].getProductnumber();}
+    public int getMachineContentLenght() {return machineContent.length;}
+    public Product getIndexOfMachineContent(int num) { return machineContent[num - 1]; }
 
 
     //Constructor
-    public VendingMachine() {
-    }
+    public VendingMachine() { }
 
     public void stockMachine() {
         machineContent[0] = new Drink("Coca Cola", 15, 42, 330, true);
@@ -30,7 +32,12 @@ public class VendingMachine implements IVendingMachine {
 
     @Override
     public void addCurrency(int amount) {
-        setMoneyPool(moneyPool + amount);
+        for (int x : acceptedDenominations) {
+            if (amount == x) {
+                    setMoneyPool(moneyPool + amount);
+                    break;
+            }
+        }
     }
 
     @Override
@@ -57,7 +64,16 @@ public class VendingMachine implements IVendingMachine {
     }
 
     @Override
-    public String[] getProducts() { return null; }
+    public String[] getProducts() {
+        String[] result = new String[machineContent.length];
+        for (int i = 0; i < machineContent.length; i++) {
+            result[i] = machineContent[i]+"\n";
+
+        }
+        return result;
+    }
+
+
 }
 
 
