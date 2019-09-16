@@ -89,8 +89,8 @@ public class VendingMachineTest
         String[] result = MyMachine.getProducts();
 
         //Assert
-        assertEquals(result.length,MyMachine.getMachineContentLenght()
-        assertTrue(Arrays.toString(result).contains("Coca Cola")));
+        assertEquals(result.length,MyMachine.getMachineContentLenght());
+        assertTrue(Arrays.toString(result).contains("Coca Cola"));
     }
 }
 

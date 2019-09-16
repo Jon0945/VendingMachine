@@ -3,13 +3,13 @@ package Se.Lexicon.John;
 import Se.Lexicon.John.models.Drink;
 import Se.Lexicon.John.models.IVendingMachine;
 import Se.Lexicon.John.models.Product;
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+import Se.Lexicon.John.models.Snacks;
 
 public class VendingMachine implements IVendingMachine {
     //Fields
     private int moneyPool;
     private int change;
-    private Product[] machineContent = new Product[2];
+    private Product[] machineContent = new Product[5];
     private int[] acceptedDenominations = {1, 5, 10, 20, 50, 100, 500, 1000};
 
     //Getters and Setters
@@ -27,6 +27,9 @@ public class VendingMachine implements IVendingMachine {
     public void stockMachine() {
         machineContent[0] = new Drink("Coca Cola", 15, 42, 330, true);
         machineContent[1] = new Drink("Festis Apelsin", 20, 40, 500, false);
+        machineContent[2] = new Snacks("Bag of salted peanuts",18,585,"Nuts",75,true);
+        machineContent[3] = new Snacks("Bag of Candied Almonds",30,474,"Nuts",75,false);
+        machineContent[4] = new Snacks("Bag of Dried Fruit Mix",24,275,"Fruit",100,false);
 
     }
 

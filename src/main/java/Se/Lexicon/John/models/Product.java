@@ -12,8 +12,11 @@ public abstract class Product {
     //Getters & Setters
     public int getProductnumber() { return productnumber; }
     public String getItemName() { return itemName; }
+    public void setItemName(String itemName) { this.itemName = itemName; }
     public int getItemCost() { return itemCost; }
+    public void setItemCost(int itemCost) { this.itemCost = itemCost; }
     public int getItemCalorieCount() { return itemCalorieCount; }
+    public void setItemCalorieCount(int itemCalorieCount) { this.itemCalorieCount = itemCalorieCount; }
 
     //Constructor
     public Product(String itemName, int itemCost, int itemCalorieCount) {
@@ -23,18 +26,13 @@ public abstract class Product {
         this.itemCalorieCount = itemCalorieCount;
     }
 
-    //Default constructor
-    public Product() {}
-
     public String productInformation () {
         StringBuilder productInfo = new StringBuilder();
-
         productInfo.append("-- Product Information --").append("\n");
         productInfo.append("Productnumber: ").append(getProductnumber()).append("\n");
         productInfo.append("Product name: ").append(getItemName()).append("\n");
         productInfo.append("Cost (SEK): ").append(getItemCost()).append("\n");
         productInfo.append("Calories per 100 g: ").append(getItemCalorieCount()).append("\n");
-
         return productInfo.toString();
     }
 
