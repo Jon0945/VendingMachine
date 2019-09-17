@@ -1,12 +1,11 @@
 package Se.Lexicon.John;
 import static org.junit.Assert.*;
-import Se.Lexicon.John.models.Drink;
 import Se.Lexicon.John.models.Product;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
+
 
 public class ProductTest {
     private Product testProduct;
@@ -18,6 +17,11 @@ public class ProductTest {
     public void makeProduct() {
         testProduct = new Product(testName, testItemCost, testCalorieCount) {
         };
+    }
+
+    @After
+    public void emptyProduct() {
+        testProduct = null;
     }
 
     @Test

@@ -33,7 +33,7 @@ public class Drink extends Product {
     @Override
     public String toString () {
         return "\nProductnumber: " + getProductnumber() +
-                "\nName " + getItemName();
+                "\nName: " + getItemName();
 
     }
 }

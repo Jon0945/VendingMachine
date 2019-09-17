@@ -19,7 +19,7 @@ public class Snacks extends Product {
     public int getBagweight() { return bagweight; }
     public void setBagweight(int bagweight) { this.bagweight = bagweight; }
     public boolean isSalted () { return isSalted; }
-    public void setCarbonated ( boolean salted){ isSalted = salted; }
+    public void setSalted ( boolean salted){ isSalted = salted; }
 
     @Override
     public String productInformation () {
@@ -38,7 +38,7 @@ public class Snacks extends Product {
     @Override
     public String toString () {
         return "\nProductnumber: " + getProductnumber() +
-                "\nName " + getItemName();
+                "\nName: " + getItemName();
 
     }
 

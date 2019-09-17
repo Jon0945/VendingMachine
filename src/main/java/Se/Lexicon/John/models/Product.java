@@ -35,14 +35,5 @@ public abstract class Product {
         productInfo.append("Calories per 100 g: ").append(getItemCalorieCount()).append("\n");
         return productInfo.toString();
     }
-
-    @Override
-    public String toString() {
-        return "Productnumber: "+getProductnumber() +
-                "\nName "+getItemName() +
-                "\nCost: " + getItemCost() +
-                "\nCalories: " +getItemCalorieCount();
-    }
-
-
 }
+

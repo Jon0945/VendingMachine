@@ -2,10 +2,12 @@ package Se.Lexicon.John;
 
 import static org.junit.Assert.*;
 
+import Se.Lexicon.John.models.Product;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class VendingMachineTest
 {
@@ -84,14 +86,41 @@ public class VendingMachineTest
     }
 
     @Test
-    public void testGetProducts() {
+    public void testProductRequestNotEnoughMoney() {
+        //Arrange
+        MyMachine.setMoneyPool(20);
+        int expectedResult = 20;
+
         //Act
-        String[] result = MyMachine.getProducts();
+        MyMachine.productRequest(4);
 
         //Assert
-        assertEquals(result.length,MyMachine.getMachineContentLenght());
-        assertTrue(Arrays.toString(result).contains("Coca Cola"));
+        assertEquals(expectedResult, MyMachine.getMoneyPool());
+    }
+
+    @Test
+    public void testGetProducts() {
+        //Act
+        List result = MyMachine.getProducts();
+
+        //Assert
+        assertEquals(result.size(),MyMachine.getMachineContentLenght());
+        assertTrue(result.toString().contains("Coca Cola"));
+    }
+
+    @Test
+    public void testProductInformation() {
+        //Act
+        String result = MyMachine.getDescription(1);
+
+        //Assert
+        assertTrue(result.contains("Coca Cola"));
+        assertTrue(result.contains("15"));
+        assertTrue(result.contains("42"));
+        assertTrue(result.contains("330"));
+        assertTrue(result.contains("Yes"));
     }
 }
+
 
 
